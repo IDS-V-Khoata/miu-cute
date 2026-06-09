@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faImage, faUpload } from "@fortawesome/free-solid-svg-icons";
 
 const CLOUDINARY_FOLDER = "assets/images/Image";
-const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+const CLOUD_NAME = "dpeca4ynn";
+const UPLOAD_PRESET = "miu_cute";
 
 function getNameWithoutExtension(fileName: string): string {
     const lastDot = fileName.lastIndexOf(".");
