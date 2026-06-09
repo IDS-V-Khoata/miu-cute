@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Leanne Graham",
+        "avatar": "1",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt.",
+        "time": "2021-01-01",
+        "like": 120,
+        "comment": 15,
+        "share": 8,
+        "video": "video1.mp4",
+        "typeImage": "png"
+    },
+    {
+        "id": 2,
+        "name": "Ervin Howell",
+        "avatar": "2",
+        "content": " ✔️ Cách tốt nhất: Dùng useRef + useEffect để cập nhật chiều cao. \n ✔️ Cách nhanh nhất: Dùng onInput trực tiếp trong JSX. \n ✔️ Next.js friendly: Không bị lỗi hydration khi render server-side. Bạn đang muốn dùng trong form nhập liệu hay UI nào khác? \n Mình có thể giúp bạn tối ưu! 🚀",
+        "time": "2021-02-15",
+        "like": 98,
+        "comment": 20,
+        "share": 12,
+        "video": "",
+        "typeImage": "jpg"
+    },
+    {
+        "id": 3,
+        "name": "Clementine Bauch",
+        "avatar": "3",
+        "content": "Pellentesque in ipsum id orci porta dapibus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
+        "time": "2021-03-10",
+        "like": 134,
+        "comment": 18,
+        "share": 7,
+        "video": "video2.mp4",
+        "typeImage": "jpg"
+    },
+    {
+        "id": 4,
+        "name": "Patricia Lebsack",
+        "avatar": "4",
+        "content": "Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.",
+        "time": "2021-04-05",
+        "like": 105,
+        "comment": 10,
+        "share": 5,
+        "video": "video3.mp4",
+        "typeImage": "png"
+    },
+    {
+        "id": 5,
+        "name": "Chelsey Dietrich",
+        "avatar": "5",
+        "content": "Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat.",
+        "time": "2021-05-22",
+        "like": 87,
+        "comment": 14,
+        "share": 6,
+        "video": "",
+        "typeImage": "jpg"
+    },
+    {
+        "id": 6,
+        "name": "Mrs. Dennis Schulist",
+        "avatar": "6",
+        "content": "Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada.",
+        "time": "2021-06-18",
+        "like": 142,
+        "comment": 25,
+        "share": 11,
+        "video": "video4.mp4",
+        "typeImage": "png"
+    },
+    {
+        "id": 7,
+        "name": "Kurtis Weissnat",
+        "avatar": "7",
+        "content": "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus.",
+        "time": "2021-07-07",
+        "like": 76,
+        "comment": 9,
+        "share": 4,
+        "video": "video5.mp4",
+        "typeImage": "png"
+    },
+    {
+        "id": 8,
+        "name": "Nicholas Runolfsdottir",
+        "avatar": "8",
+        "content": "Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. ",
+        "time": "2021-08-12",
+        "like": 111,
+        "comment": 12,
+        "share": 9,
+        "video": "",
+        "typeImage": "jpg"
+    },
+    {
+        "id": 9,
+        "name": "Glenna Reichert",
+        "avatar": "9",
+        "content": "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.",
+        "time": "2021-09-30",
+        "like": 90,
+        "comment": 16,
+        "share": 10,
+        "video": "video6.mp4",
+        "typeImage": "png"
+    },
+    {
+        "id": 10,
+        "name": "Clementina DuBuque",
+        "avatar": "10",
+        "content": "Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum.",
+        "time": "2021-10-25",
+        "like": 129,
+        "comment": 22,
+        "share": 13,
+        "video": "",
+        "typeImage": "png"
+    }
+]

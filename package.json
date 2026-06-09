@@ -1,0 +1,44 @@
+{
+  "name": "translate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^4.14.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@react-icons/all-files": "^4.1.0",
+    "@types/chart.js": "^2.9.41",
+    "amazon-cognito-identity-js": "^6.3.16",
+    "aws-amplify": "^6.15.9",
+    "axios": "^1.13.2",
+    "chart.js": "^4.4.8",
+    "clsx": "^2.1.1",
+    "leaflet": "^1.9.4",
+    "next": "^16.1.0",
+    "react": "^19.2.3",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^19.2.3",
+    "react-icons": "^5.6.0",
+    "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/axios": "^0.9.36",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5"
+  }
+}

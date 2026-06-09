@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #2c3e50;
+  --min-height-applayout: 100vh;
+  --min-height-content: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill {
+  background-color: yellow !important;
+  /* Màu nền */
+  color: black !important;
+  /* Màu chữ */
+}
+
+.text-shadow {
+  text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* Ẩn thanh cuộn trên Chrome, Safari */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ẩn thanh cuộn trên Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@theme {
+  --color-darkgreen: #2c5f2d;
+  --color-lightgreen: #97bc62;
+  --color-lightred: #cc313d;
+  --color-darkred: #990011;
+  --color-lightyellow: #fee715;
+  --color-darkcharcoal: #101820;
+}
