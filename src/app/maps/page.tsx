@@ -157,7 +157,7 @@ export default function Maps() {
                     </div>
                     <div className="w-full h-[420px]">
                         {countries.latlng && (
-                            <MapContainer center={countries.latlng} zoom={5} style={{ height: 400 }} key={countries.name.common}>
+                            <MapContainer bounds={[countries.latlng]} style={{ height: 400 }} key={countries.name.common}>
                                 <TileLayer
                                     url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                                 />

@@ -31,7 +31,7 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
                     <RightBar />
                 </main>
             </div>
-            <Modal isOpen={isShowNotifications} onCloseModal={() => setIsShowNotifications(false)} />
+            <Modal isOpen={isShowNotifications} onCloseModal={() => setIsShowNotifications(false)} title={""} />
         </div>
     )
 }
