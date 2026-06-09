@@ -1,7 +1,7 @@
 "use client"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import React from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
@@ -49,7 +49,7 @@ export const InputCustom = ({ id, name, autoComplete, type, placeholder, value, 
     return (
         <div className={`${positionIcon !== "left" ? "pl-4" : "pr-4"} w-full relative flex items-center rounded-lg bg-[#e5eaf3]
               shadow-[inset_8px_8px_16px_#bec3cf,inset_-8px_-8px_16px_#ffffff] py-1`}>
-            <div className={`${positionIcon !== "left" ? "order-0" : "order-2"} bg-[#e5eaf3] flex items-center justify-center rounded shadow-[4px_4px_10px_#bec3cf,-4px_-4px_10px_#ffffff] w-8 h-8`}>
+            <div className={`${positionIcon !== "left" ? "order-0" : "order-2"} bg-[#e5eaf3] flex items-center justify-center rounded shadow-[4px_4px_10px_#bec3cf,-4px_-4px_10px_#ffffff] min-w-8 h-8`}>
                 {icon && <FontAwesomeIcon icon={icon} className="text-[#9499b7]" />}
             </div>
             <input

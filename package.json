@@ -15,10 +15,11 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@react-icons/all-files": "^4.1.0",
     "@types/chart.js": "^2.9.41",
-    "amazon-cognito-identity-js": "^6.3.16",
+    "amazon-cognito-identity-js": "^1.24.0",
     "aws-amplify": "^6.15.9",
     "axios": "^1.13.2",
     "chart.js": "^4.4.8",
+    "cloudinary": "^2.10.0",
     "clsx": "^2.1.1",
     "leaflet": "^1.9.4",
     "next": "^16.1.0",
@@ -39,6 +40,6 @@
     "eslint-config-next": "15.1.7",
     "postcss": "^8",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5"
+    "typescript": "6.0.3"
   }
 }

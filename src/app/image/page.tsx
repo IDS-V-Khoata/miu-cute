@@ -1,5 +1,3 @@
-"use client";
-
 import UploadImage from "@/components/UploadImage";
 import { Box } from "../components/Form";
 import AppLayout from "@/components/layout/AppLayout/AppLayout";
