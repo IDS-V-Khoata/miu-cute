@@ -15,7 +15,7 @@ const Modal: React.FC<ModalProps> = ({ title, isOpen, children, size, onCloseMod
     const modalSizeClasses = size === "small" ? "w-72" : size === "large" ? "w-3xl" : "w-96";
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-[#0c0c0cb5] z-50" onClick={onCloseModal}>
+        <div className="fixed inset-0 flex items-center justify-center bg-[#0c0c0cb5] z-90" onClick={onCloseModal}>
             <div className={`${modalSizeClasses} bg-darkcharcoal p-6 rounded-lg shadow-lg`} onClick={(e) => e.stopPropagation()}>
                 <h2 className="text-xl font-bold text-lightyellow">{title}</h2>
                 {children ? children : <p className="mt-2">This is a simple modal example.</p>}

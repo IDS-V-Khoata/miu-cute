@@ -60,7 +60,7 @@ export const InputCustom = ({ id, name, autoComplete, type, placeholder, value, 
                 placeholder={placeholder}
                 onChange={(e) => changeValue(e.target.value)}
                 autoComplete={autoComplete}
-                className="order-1 w-full rounded outline-none hover:border-[#95a5a6] sm:h-12 px-4 sm:px-5 autofill:bg-transparent bg-transparent text-[#9499b7]"
+                className="order-1 w-full rounded outline-none hover:border-[#95a5a6] h-12 px-4 sm:px-5 autofill:bg-transparent bg-transparent text-[#9499b7]"
             />
         </div>
     )
@@ -77,7 +77,7 @@ export const InputPassWordCustom = ({ placeholder, value, changeValue }: InputPa
 
     return (
         <div className="bg-[#e5eaf3] rounded-lg border border-solid outline-none pl-4 sm:px-4 py-1 shadow-[inset_8px_8px_16px_#bec3cf,inset_-8px_-8px_16px_#ffffff] flex items-center justify-between">
-            <div className="bg-[#e5eaf3] flex items-center justify-center rounded shadow-[4px_4px_10px_#bec3cf,-4px_-4px_10px_#ffffff] w-8 h-8">
+            <div className="bg-[#e5eaf3] flex items-center justify-center rounded shadow-[4px_4px_10px_#bec3cf,-4px_-4px_10px_#ffffff] min-w-8 h-8">
                 {isHidden ? <FontAwesomeIcon icon={faEye} className="cursor-pointer text-[#9499b7]" onClick={() => setIsHidden(false)} /> : <FontAwesomeIcon icon={faEyeSlash} className="cursor-pointer text-[#9499b7]" onClick={() => setIsHidden(true)} />}
             </div>
             <input
@@ -85,7 +85,7 @@ export const InputPassWordCustom = ({ placeholder, value, changeValue }: InputPa
                 value={value}
                 placeholder={placeholder}
                 onChange={(e) => changeValue(e.target.value)}
-                className={`${isHidden && value.trim() !== '' ? 'text-3xl' : 'text'} text-[#9499b7] px-4 h-12 outline-none autofill:bg-transparent bg-transparent flex-1`}
+                className={`${isHidden && value.trim() !== '' ? 'text-3xl' : 'text'} text-[#9499b7] px-4 w-full h-12 outline-none autofill:bg-transparent bg-transparent flex-1`}
                 autoComplete="new-password"
             />
         </div>

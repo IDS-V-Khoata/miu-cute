@@ -74,7 +74,7 @@ export default function FindDog() {
                         image.length > 0 ? (
                             image.map((img, index) => {
                                 return (
-                                    <Box key={index} className="w-full flex flex-wrap items-center justify-center border border-[#ccc] p-4 rounded max-w-lg shadow-2xl hover:shadow relative">
+                                    <Box key={index} className="relative w-full flex flex-wrap items-center justify-center border border-[#ccc] p-4 rounded max-w-lg shadow-2xl hover:shadow">
                                         {loading && <div className="absolute top-0 left-0 right-0 bottom-0 bg-white rounded"></div>}
                                         <Image src={img.url || 'not found'} alt="Random dog" className="shadow-2xl max-w-[480px]" width={img.width || 300} height={img.height || 300} onLoad={() => setLoadedCount((prev) => prev + 1)} />
                                     </Box>
@@ -82,7 +82,7 @@ export default function FindDog() {
                             })
                         ) : (
                             <div className="flex flex-col items-center gap-4 border border-[#ccc] p-4 rounded max-w-lg shadow-2xl">
-                                <div>
+                                <div className="relative">
                                     <Image src={demo} alt="Random dog" className="shadow-2xl max-w-[480px] h-auto" onLoad={() => setLoading(false)} />
                                 </div>
                                 <p className="text-[#7f8c8d]">Please click button &quot;Find&quot; to search for a pet image.</p>

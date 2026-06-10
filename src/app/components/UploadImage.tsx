@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faImage, faUpload } from "@fortawesome/free-solid-svg-icons";
 
 const CLOUDINARY_FOLDER = "assets/images/Image";
-const CLOUD_NAME = "dpeca4ynn";
-const UPLOAD_PRESET = "miu_cute";
+const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
 function getNameWithoutExtension(fileName: string): string {
     const lastDot = fileName.lastIndexOf(".");
@@ -46,7 +46,6 @@ export default function UploadImage() {
     const [error, setError] = useState<string | null>(null);
 
     const isConfigured = Boolean(CLOUD_NAME && UPLOAD_PRESET);
-
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = event.target.files?.[0];
         if (!selectedFile) return;

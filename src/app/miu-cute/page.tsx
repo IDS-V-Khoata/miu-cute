@@ -10,7 +10,12 @@ import Link from "next/link";
 
 const PAGE_SIZE = 8;
 
+interface PhotoInterface {
+    asset_id: string;
+    secure_url: string;
+}
 export default function Child() {
+    const [photos, setPhotos] = useState<PhotoInterface[]>([]);
     const [urlDetail, setUrlDetail] = useState<string>("");
     const [allImages, setAllImages] = useState<string[]>([]);
     const [visibleImages, setVisibleImages] = useState<string[]>([]);
@@ -18,6 +23,21 @@ export default function Child() {
     const [isShowCentryDetail, setIsShowCentryDetail] = useState(false);
 
     const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        fetch("/api/miu-cute")
+            .then(async (res) => {
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}`);
+                }
+
+                return res.json();
+            })
+            .then(setPhotos)
+            .catch((err) => {
+                console.error("Fetch photos failed:", err);
+            });
+    }, []);
 
     // Generate images
     useEffect(() => {
@@ -80,47 +100,45 @@ export default function Child() {
     return (
         <AppLayout titlePage="Miu Cute Gallery">
             <OverLoad isActive={loading} />
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4 pb-8">
-                {visibleImages.map((src, index) => (
-                    <div
+                {photos.map((photo: PhotoInterface) => (
+                    <div key={photo.asset_id}
                         onClick={() => {
                             setLoading(true);
-                            setUrlDetail(src);
+                            setUrlDetail(photo.secure_url);
                             setIsShowCentryDetail(true);
                         }}
-                        key={src}
                         className="group relative aspect-square overflow-hidden rounded cursor-pointer hover:shadow-2xl"
                     >
                         {/* Overlay */}
                         <div className="absolute z-50 inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-lg font-bold">
                             <RiZoomInLine size={28} />
                         </div>
-
-                        {/* Image */}
                         <Image
-                            src={src}
-                            alt={`Gallery image ${index + 1}`}
+                            src={photo.secure_url}
+                            alt={photo.asset_id}
                             fill
-                            priority={index < 30}
-                            className="object-cover group-hover:scale-110 transition-transform duration-500"
-                            onLoad={() => setLoading(false)}
                             sizes="
                                 (max-width: 768px) 100vw,
                                 (max-width: 1200px) 50vw,
                                 33vw
                             "
+                            priority={Number(photo.asset_id) < 30}
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            onLoad={() => setLoading(false)}
                         />
                     </div>
                 ))}
             </div>
 
+
             {/* Trigger Load More */}
+
             <div
                 ref={loadMoreRef}
-                className="h-20 flex items-center justify-center"
+                className="h-10 flex items-center justify-center"
             >
-                {visibleImages.length < allImages.length ? (
+                {photos.length < allImages.length ? (
                     <p className="text-gray-500">
                         Loading more...
                     </p>
@@ -130,7 +148,6 @@ export default function Child() {
                     </p>
                 )}
             </div>
-
             {/* Modal */}
             <Modal
                 isOpen={isShowCentryDetail}

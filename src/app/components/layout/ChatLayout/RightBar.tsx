@@ -65,7 +65,7 @@ export default function RightBar({ isShowRightBar, chatSelectedBox }: RightBarPr
     }
 
     return (
-        <div className={`${isShowRightBar ? "w-[60px]" : "w-3xs"} "wrapp-rightbar py-3 bg-darkcharcoal text-lightyellow transition-all duration-500 ease-linear"`}>
+        <div className={`${isShowRightBar ? "w-[60px]" : "w-3xs"} "wrapp-rightbar pt-20 bg-darkcharcoal text-lightyellow transition-all duration-500 ease-linear"`}>
             <div className="w-full max-w-lg">
                 {/* Tabs header */}
                 <div className="flex border-b border-lightyellow">

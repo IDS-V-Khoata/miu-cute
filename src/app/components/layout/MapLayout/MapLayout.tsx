@@ -29,17 +29,15 @@ export default function MapLayout({ titlePage = "Maps", children }: MapLayoutPro
     return (
         <div className="wrapp-layout flex" onClick={() => setIsShowNotifications(false)}>
             <Sidebar isShowSidebar={isShowSidebar} />
-            <div className={`${isShowSidebar ? "ml-[60px]" : "ml-[256px]"} wrapper flex-1 transition-all duration-500 ease-linear"`}>
-                <Header toggleSidebar={handleShowSidebar} showNotifications={handleShowNotifications} />
-                <div className="min-h-[calc(100vh-136px)] flex">
-                    <div className="pt-4 px-4 flex-1">
-                        {titlePage && <h1 className="text-3xl font-semibold mb-8">{titlePage}</h1>}
-                        <main className="flex flex-col gap-8">
-                            {children}
-                        </main>
-                    </div>
-                    {/* <RightBar isShowRightBar={isShowSidebar} /> */}
+            <div className={`${isShowSidebar ? "ml-[60px]" : "ml-[256px]"} wrapper h-screen flex flex-col flex-1 transition-all duration-500 ease-linear"`}>
+                <Header isShowSidebar={isShowSidebar} toggleSidebar={handleShowSidebar} showNotifications={handleShowNotifications} />
+                <div className="pt-20 px-4 flex-1">
+                    {titlePage && <h1 className="text-3xl font-semibold mb-4">{titlePage}</h1>}
+                    <main className="flex flex-col gap-8">
+                        {children}
+                    </main>
                 </div>
+                {/* <RightBar isShowRightBar={isShowSidebar} /> */}
                 <Footer />
             </div>
             <ScrollToTop />
