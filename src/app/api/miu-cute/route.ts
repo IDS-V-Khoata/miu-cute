@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 cloudinary.config({
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -15,4 +15,47 @@ export async function GET() {
         .execute();
 
     return NextResponse.json(result.resources);
+}
+
+export async function DELETE(request: NextRequest) {
+    try {
+        const { publicId } = await request.json();
+
+        if (!publicId) {
+            return NextResponse.json(
+                { error: "publicId is required" },
+                { status: 400 }
+            );
+        }
+
+        const result = await cloudinary.uploader.destroy(publicId);
+
+        if (result.result !== "ok") {
+            return NextResponse.json(
+                {
+                    success: false,
+                    error: "Image not found or already deleted",
+                    result,
+                },
+                { status: 404 }
+            );
+        }
+
+        return NextResponse.json({
+            success: true,
+            result,
+        });
+    } catch (error) {
+        console.error("Delete image error:", error);
+
+        return NextResponse.json(
+            {
+                success: false,
+                error: "Failed to delete image",
+            },
+            {
+                status: 500,
+            }
+        );
+    }
 }
