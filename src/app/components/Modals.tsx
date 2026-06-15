@@ -1,4 +1,5 @@
 import React from "react";
+import { RiCloseCircleLine } from "react-icons/ri";
 
 type size = "small" | "medium" | "large";
 
@@ -16,18 +17,12 @@ const Modal: React.FC<ModalProps> = ({ title, isOpen, children, size, onCloseMod
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-[#0c0c0cb5] z-90" onClick={onCloseModal}>
-            <div className={`${modalSizeClasses} bg-darkcharcoal p-6 rounded-lg shadow-lg`} onClick={(e) => e.stopPropagation()}>
+            <div className={`${modalSizeClasses} bg-darkcharcoal p-6 rounded-lg shadow-lg relative`} onClick={(e) => e.stopPropagation()}>
+                <div className="absolute top-2 right-2 text-white cursor-pointer" onClick={onCloseModal}>
+                    <RiCloseCircleLine size={24} />
+                </div>
                 <h2 className="text-xl font-bold text-lightyellow">{title}</h2>
                 {children ? children : <p className="mt-2">This is a simple modal example.</p>}
-                <div className="mt-4 flex gap-4 items-center justify-end">
-                    {/* <ButtonCustom primary="darkyellow" text={"Save"} handleClick={onCloseModal} /> */}
-                    <button
-                        className="h-9 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 cursor-pointer"
-                        onClick={onCloseModal}
-                    >
-                        Close
-                    </button>
-                </div>
             </div>
         </div>
     );
