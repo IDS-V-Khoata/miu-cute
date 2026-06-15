@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Box, InputCustom, InputPassWordCustom } from "../../components/Form";
+import { Box, InputCustom, InputPassWordCustom } from "@/app/components/Form";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 

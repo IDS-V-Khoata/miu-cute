@@ -5,6 +5,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import React from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { IconType } from "react-icons";
 
 interface ButtonCustomProps {
     text: string;
@@ -12,24 +13,28 @@ interface ButtonCustomProps {
     size?: 'small' | 'medium' | 'large';
     block?: boolean;
     handleClick: () => void;
-    icon?: IconProp;
+    icon?: IconProp | IconType;
 }
 
 export const ButtonCustom = React.memo(({ text, primary, size, block, icon, handleClick }: ButtonCustomProps) => {
-    const bgColor = primary === "primary" ? 'bg-[#3498db] hover:bg-[#2980b9] text-white' : primary === "secondary" ? 'bg-[#e0e5ec] hover:shadow-[inset_4px_4px_10px_#bec3cf,inset_-4px_-4px_10px_#ffffff] text-[#3d4468] shadow-[4px_4px_20px_#bec3cf,-8px_-8px_20px_#ffffff]' : primary === "darkyellow" ? "bg-darkcharcoal text-lightyellow shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] border-lightyellow hover:bg-darkcharcoal/80" : 'bg-gray-500 hover:bg-gray-600 text-white';
+    const bgColor = primary === "primary" ? 'bg-darkcharcoal hover:bg-[#2980b9] text-lightyellow' : primary === "secondary" ? 'bg-[#e0e5ec] hover:shadow-[inset_4px_4px_10px_#bec3cf,inset_-4px_-4px_10px_#ffffff] text-[#3d4468] shadow-[4px_4px_20px_#bec3cf,-8px_-8px_20px_#ffffff]' : primary === "darkyellow" ? "bg-darkcharcoal text-lightyellow shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] border-lightyellow hover:bg-darkcharcoal/80" : 'bg-gray-500 hover:bg-gray-600 text-white';
     const hButton = size === 'small' ? 'h-8' : size === 'large' ? 'h-10' : 'h-9';
     const wButton = block ? 'w-full' : 'w-auto';
 
     return (
         <button
             onClick={handleClick}
-            className={`${bgColor} ${hButton} ${wButton} text-xl rounded border border-solid transition-colors flex items-center justify-center cursor-pointer px-4 sm:px-5 ${icon ? "font-light" : "font-bold"}`}
+            className={`${bgColor} ${hButton} ${wButton} text-xl rounded border border-solid transition-colors flex items-center justify-center gap-2 cursor-pointer px-4 sm:px-5 ${icon ? "font-light" : "font-bold"}`}
         >
-            {icon && <FontAwesomeIcon icon={icon} className='w-[16px] mr-2' />}
+            {icon && (
+                typeof icon === "function"
+                    ? React.createElement(icon, { className: "w-[16px]" })
+                    : <FontAwesomeIcon icon={icon} className="w-[16px]" />
+            )}
             {text}
         </button>
     )
-})
+});
 
 ButtonCustom.displayName = 'ButtonCustom';
 
@@ -45,7 +50,7 @@ interface InputCustomProps {
     changeValue: (value: string) => void;
 }
 
-export const InputCustom = ({ id, name, autoComplete, type, placeholder, value, icon, positionIcon = "left", changeValue }: InputCustomProps) => {
+export const InputCustom = React.memo(({ id, name, autoComplete, type, placeholder, value, icon, positionIcon = "left", changeValue }: InputCustomProps) => {
     return (
         <div className={`${positionIcon !== "left" ? "pl-4" : "pr-4"} w-full relative flex items-center rounded-lg bg-[#e5eaf3]
               shadow-[inset_8px_8px_16px_#bec3cf,inset_-8px_-8px_16px_#ffffff] py-1`}>
@@ -64,15 +69,16 @@ export const InputCustom = ({ id, name, autoComplete, type, placeholder, value, 
             />
         </div>
     )
-}
+});
 
+InputCustom.displayName = 'InputCustom';
 interface InputPassWordProps {
     placeholder: string;
     value: string;
     changeValue: (value: string) => void;
 }
 
-export const InputPassWordCustom = ({ placeholder, value, changeValue }: InputPassWordProps) => {
+export const InputPassWordCustom = React.memo(({ placeholder, value, changeValue }: InputPassWordProps) => {
     const [isHidden, setIsHidden] = useState(true);
 
     return (
@@ -90,7 +96,9 @@ export const InputPassWordCustom = ({ placeholder, value, changeValue }: InputPa
             />
         </div>
     )
-}
+});
+
+InputPassWordCustom.displayName = 'InputPassWordCustom';
 
 interface InputFormProps {
     id?: string;
@@ -103,7 +111,7 @@ interface InputFormProps {
     changeValue: (value: string) => void;
 }
 
-export const InputForm = ({ id, name, autoComplete, type, placeholder, value, icon, changeValue }: InputFormProps) => {
+export const InputForm = React.memo(({ id, name, autoComplete, type, placeholder, value, icon, changeValue }: InputFormProps) => {
     return (
         <div className="w-full relative flex items-center rounded border border-gray-200 ">
             {icon && <div className="bg-[#e5eaf3] flex items-center justify-center rounded shadow-[4px_4px_10px_#bec3cf,-4px_-4px_10px_#ffffff] w-8 h-8">
@@ -121,7 +129,9 @@ export const InputForm = ({ id, name, autoComplete, type, placeholder, value, ic
             />
         </div>
     )
-}
+});
+
+InputForm.displayName = 'InputForm';
 
 interface InputCheckBoxProps {
     value: boolean;
@@ -129,7 +139,7 @@ interface InputCheckBoxProps {
     changeValue: (value: boolean) => void;
 }
 
-export const CheckBoxCustom = ({ value, label, changeValue }: InputCheckBoxProps) => {
+export const CheckBoxCustom = React.memo(({ value, label, changeValue }: InputCheckBoxProps) => {
     const renderLabel = () => {
         if (typeof label === "string") {
             return <label htmlFor="remember-login" className="cursor-pointer">{label}</label>
@@ -147,7 +157,9 @@ export const CheckBoxCustom = ({ value, label, changeValue }: InputCheckBoxProps
             {renderLabel()}
         </div>
     )
-}
+});
+
+CheckBoxCustom.displayName = 'CheckBoxCustom';
 
 interface RadioOption {
     label: string | IconProp;
@@ -162,7 +174,7 @@ interface RadioGroupProps {
     onChange: (value: string | number) => void;
 }
 
-export const RadioGroup = ({
+export const RadioGroup = React.memo(({
     name,
     value,
     isRow = true,
@@ -206,18 +218,21 @@ export const RadioGroup = ({
             })}
         </div >
     );
-};
+});
 
+RadioGroup.displayName = 'RadioGroup';
 
 interface BoxProps {
     children?: React.ReactNode;
     className?: string;
 }
 
-export const Box = ({ children, className = "" }: BoxProps) => {
+export const Box = React.memo(({ children, className = "" }: BoxProps) => {
     return (
-        <div className={`${className} rounded`} >
+        <div className={`${className} rounded bg-white boder boder-solid border-gray-200`} >
             {!!children && children}
         </div>
     )
-}
+});
+
+Box.displayName = 'Box';

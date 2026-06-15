@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import BoxChat from "@/components/BoxChat";
 import { useState } from 'react';

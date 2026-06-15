@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -18,6 +18,7 @@ import { LuImageUp } from "react-icons/lu";
 // import { PiShoppingCartLight } from "react-icons/pi";
 // import { LuMapPinned } from "react-icons/lu";
 import { GiCutDiamond } from "react-icons/gi";
+import { SIDEBAR_COLLAPSED, SIDEBAR_EXPANDED } from "./constants";
 
 interface SidebarProps {
     isShowSidebar: boolean;
@@ -64,7 +65,7 @@ const ItemMenu = ({ item, isShowSidebar }: { item: typeof menuItems[0]; isShowSi
         >
             {Icon && <Icon size={item.iconSize} />}
             {/* <Image src={item.url} alt="Random dog" className="shadow-2xl max-w-[480px]" width={item.width} height={item.height} /> */}
-            <span className={`${isShowSidebar ? "w-0 opacity-0 hidden" : "block flex-1"} self-center text-nowrap transition-width transition-opacity duration-500 ease-linear overflow-hidden font-bold'`}>{item.name}</span>
+            <span className={`${isShowSidebar ? "w-0 opacity-0 hidden" : "block flex-1"} self-center text-nowrap transition-width transition-opacity duration-500 ease-linear overflow-hidden font-bold`}>{item.name}</span>
         </Link>
     )
 }
@@ -72,7 +73,7 @@ const ItemMenu = ({ item, isShowSidebar }: { item: typeof menuItems[0]; isShowSi
 export default function Sidebar({ isShowSidebar }: SidebarProps) {
 
     return (
-        <div className={`${isShowSidebar ? "w-[60px]" : "w-3xs"} wrapp-sidebar py-3 bg-darkcharcoal text-white fixed h-screen transition-all duration-500 ease-linear z-80`}>
+        <div className={`${isShowSidebar ? SIDEBAR_COLLAPSED : SIDEBAR_EXPANDED} wrapp-sidebar py-3 bg-darkcharcoal text-white fixed h-screen transition-all duration-500 ease-linear z-80`}>
             <div className={`flex gap-2 mb-4 px-3 transition-all duration-500 ease-linear`}>
                 <Image src="/assets/images/icon-logo.png" alt="File icon" width={40} height={40} className={`${isShowSidebar ? "items-start" : "items-center"} min-w-[40px] w-[40px] h-[40px]`} />
                 <h1 className={`${isShowSidebar ? "hidden opacity-0 w-0 visible" : "w-auto block opacity-100 visible"} text-nowrap self-center text-3xl font-semibold transition-all duration-500 ease-linear overflow-hidden bg-gradient-to-r

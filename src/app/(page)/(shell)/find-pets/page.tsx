@@ -1,12 +1,12 @@
 "use client";
 
-import AppLayout from "@/components/layout/AppLayout/AppLayout";
-import { Box, ButtonCustom, CheckBoxCustom, RadioGroup } from "../components/Form";
+import { Box, ButtonCustom, CheckBoxCustom, RadioGroup } from "@/components/Form";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import OverLoad from "@/components/OverLoad";
 import { faArrowUpRightDots, faCat, faDog, faMagnifyingGlass, faPaw } from "@fortawesome/free-solid-svg-icons";
-import demo from "../../../public/assets/images/dogcat.jpg";
+
+const IMAGE_DEFAULT = "/assets/images/dogcat.jpg";
 
 interface ImagePets {
     height?: number;
@@ -52,7 +52,7 @@ export default function FindDog() {
     }, [loadedCount, image.length]);
 
     return (
-        <AppLayout titlePage="FindPets">
+        <>
             <OverLoad isActive={loading} />
             <Box className="flex flex-col gap-8 w-full items-center justify-center py-6">
                 <ButtonCustom primary="darkyellow" text="Find" handleClick={handleSearch} icon={faMagnifyingGlass} />
@@ -83,7 +83,7 @@ export default function FindDog() {
                         ) : (
                             <div className="flex flex-col items-center gap-4 border border-[#ccc] p-4 rounded max-w-lg shadow-2xl">
                                 <div className="relative">
-                                    <Image src={demo} alt="Random dog" className="shadow-2xl max-w-[480px] h-auto" onLoad={() => setLoading(false)} />
+                                    <Image src={IMAGE_DEFAULT} alt="Random dog" width={480} height={320} className="shadow-2xl max-w-[480px] h-auto" onLoad={() => setLoading(false)} />
                                 </div>
                                 <p className="text-[#7f8c8d]">Please click button &quot;Find&quot; to search for a pet image.</p>
                             </div>
@@ -91,6 +91,6 @@ export default function FindDog() {
                     }
                 </Box>
             </Box>
-        </AppLayout>
+        </>
     );
 }

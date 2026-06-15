@@ -4,7 +4,8 @@ import { useRef, useState } from "react";
 import { Box, ButtonCustom, InputForm } from "./Form";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark, faImage, faUpload } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark, faImage } from "@fortawesome/free-solid-svg-icons";
+import { LuImageUp } from "react-icons/lu";
 
 const CLOUDINARY_FOLDER = "assets/images/Image";
 const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
@@ -107,7 +108,7 @@ export default function UploadImage() {
     };
 
     return (
-        <Box className="w-xl shadow-2xl p-4 bg-white rounded-xl">
+        <Box className="max-w-xl shadow-2xl p-4 bg-white rounded-xl">
             {!isConfigured && (
                 <p className="mb-4 text-sm text-amber-600 bg-amber-50 border border-amber-200 rounded-lg p-3">
                     Thiếu cấu hình Cloudinary. Thêm vào <code>.env.local</code>:
@@ -164,7 +165,7 @@ export default function UploadImage() {
                         primary="primary"
                         block
                         text={isUploading ? "Đang lưu..." : "Lưu ảnh"}
-                        icon={faUpload}
+                        icon={LuImageUp}
                         handleClick={handleSave}
                     />
                 </div>
@@ -173,7 +174,7 @@ export default function UploadImage() {
             {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
 
             {savedPath && (
-                <p className="mt-2 text-sm text-green-600">
+                <p className="mt-2 text-sm text-green-500">
                     Đã lưu trên Cloudinary:{" "}
                     <a
                         href={savedPath}

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import url from '@/assets/images/blog-icon-logo.png';
 import { Box } from "@/components/Form";

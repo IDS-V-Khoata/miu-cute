@@ -2,7 +2,6 @@
 
 import { Box } from "@/components/Form";
 import ChartComponent from "@/components/ChartComponent"
-import AppLayout from "@/components/layout/AppLayout/AppLayout";
 import { RenderNumber } from "@/components/RenderNumber";
 import { faChartSimple, faClipboardList, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,7 +39,7 @@ export default function Dashboard() {
     };
 
     return (
-        <AppLayout titlePage="Dashboard">
+        <>
             <div className="flex items-center gap-8">
                 <Box className="bg-linear-to-r from-cyan-500 to-blue-500 shadow-2xl p-20 border border-solid flex flex-col gap-8 flex-1 text-shadow text-[#ecf0f1] relative">
                     <div className="absolute top-0 left-4"><FontAwesomeIcon icon={faClipboardList} /> Text</div>
@@ -62,6 +61,6 @@ export default function Dashboard() {
                 </Box>
             </div>
             <ChartComponent data={chartData} options={chartOptions} />
-        </AppLayout>
+        </>
     );
 }
