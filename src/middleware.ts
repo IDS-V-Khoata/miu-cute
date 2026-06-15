@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
 
     if (!token) {
         return NextResponse.redirect(
-            new URL("/auth/login", request.url)
+            new URL("/login", request.url)
         );
     }
 

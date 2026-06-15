@@ -1,13 +1,10 @@
 "use client";
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
-import "leaflet/dist/leaflet.css";
-import MapLayout from "@/components/layout/MapLayout/MapLayout";
 import { useEffect, useState } from "react";
 import OverLoad from "@/components/OverLoad";
 import Image from "next/image";
 import Modal from "@/components/Modals";
-// import type { Marker as LeafletMarkerComponent } from "react-leaflet";
 
 const MapContainer = dynamic(
     () => import("react-leaflet").then((m) => m.MapContainer),
@@ -18,11 +15,6 @@ const TileLayer = dynamic(
     () => import("react-leaflet").then((m) => m.TileLayer),
     { ssr: false }
 );
-
-// const Marker = dynamic(
-//     () => import("react-leaflet").then((m) => m.Marker),
-//     { ssr: false }
-// ) as typeof LeafletMarkerComponent;
 
 interface CountriesProps {
     name: {
@@ -72,6 +64,7 @@ export default function Maps() {
     const [loading, setLoading] = useState<boolean>(false);
     const [countries, setCountries] = useState<CountryDetailProps>({} as CountryDetailProps);
     const [isShowCentryDetail, setIsShowCentryDetail] = useState(false);
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -80,7 +73,6 @@ export default function Maps() {
                     method: 'GET',
                 });
                 const data = await response.json();
-                // console.log(data)
                 setListCountries(data);
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -98,8 +90,6 @@ export default function Maps() {
                 body: JSON.stringify({ name: name })
             });
             const data = await response.json();
-            console.log("country =================================================>", data)
-
             setCountries(data);
             setLoading(false);
             setIsShowCentryDetail(true);
@@ -113,7 +103,7 @@ export default function Maps() {
     }
 
     return (
-        <MapLayout titlePage="Countries">
+        <>
             <OverLoad isActive={loading} />
             <div className="max-w-5xl xl:max-w-6xl mx-auto">
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
@@ -161,14 +151,11 @@ export default function Maps() {
                                 <TileLayer
                                     url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                                 />
-                                {/* <Marker position={countries.latlng} >
-                                    <span>AAA</span>
-                                </Marker> */}
                             </MapContainer>
                         )}
                     </div>
                 </div>
             </Modal>
-        </MapLayout>
+        </>
     );
 }

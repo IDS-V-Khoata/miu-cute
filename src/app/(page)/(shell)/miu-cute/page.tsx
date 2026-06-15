@@ -1,10 +1,9 @@
 "use client";
 
-import AppLayout from "@/components/layout/AppLayout/AppLayout";
 import OverLoad from "@/components/OverLoad";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import Modal from "../components/Modals";
+import Modal from "@/components/Modals";
 import { RiZoomInLine } from "react-icons/ri";
 import Link from "next/link";
 
@@ -98,7 +97,7 @@ export default function Child() {
     };
 
     return (
-        <AppLayout titlePage="Miu Cute Gallery">
+        <>
             <OverLoad isActive={loading} />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4 pb-8">
                 {photos.map((photo: PhotoInterface) => (
@@ -123,8 +122,9 @@ export default function Child() {
                                 (max-width: 1200px) 50vw,
                                 33vw
                             "
+                            loading="eager"
                             priority={Number(photo.asset_id) < 30}
-                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            className="object-cover group-hover:scale-100 transition-transform duration-500"
                             onLoad={() => setLoading(false)}
                         />
                     </div>
@@ -178,6 +178,6 @@ export default function Child() {
                     </Link>
                 </div>
             </Modal>
-        </AppLayout>
+        </>
     );
 }

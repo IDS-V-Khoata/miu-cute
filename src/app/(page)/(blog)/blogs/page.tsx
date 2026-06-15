@@ -3,7 +3,6 @@
 import AutoSlider from "@/components/AutoSlider";
 import BlogBox from "@/components/BlogBox";
 import { ButtonStyle } from "@/components/Forms";
-import BlogLayout from "@/components/layout/BlogLayout/BlogLayout";
 import Loading from "@/components/Loading";
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,7 +25,7 @@ export default function Blogs() {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        fetch("api/listUsers.json") // Gọi API từ route.ts
+        fetch("api/listUsers.json")
             .then((res) => res.json())
             .then((data) => setData(data))
             .catch((error) => console.error("Error fetching data:", error));
@@ -45,7 +44,7 @@ export default function Blogs() {
     }
 
     return (
-        <BlogLayout>
+        <>
             <AutoSlider />
             <div className="wrapper py-6 flex flex-col gap-6 max-w-3xl m-auto">
                 {
@@ -62,6 +61,6 @@ export default function Blogs() {
                 </div>
             </div>
             <Loading isOpen={isLoading} />
-        </BlogLayout>
+        </>
     );
 }

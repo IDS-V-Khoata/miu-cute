@@ -1,6 +1,5 @@
 "use client";
 
-import AppLayout from "@/components/layout/AppLayout/AppLayout";
 import OverLoad from "@/components/OverLoad";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -42,7 +41,7 @@ export default function Cinema() {
     }, []);
 
     return (
-        <AppLayout titlePage="Cinema">
+        <>
             <OverLoad isActive={loading} />
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8 px-4 pb-8">
                 {
@@ -68,6 +67,6 @@ export default function Cinema() {
                     })
                 }
             </div>
-        </AppLayout>
+        </>
     );
 }

@@ -4,6 +4,7 @@ import BoxChat from "@/components/BoxChat";
 import Divider from "@/components/Divider";
 import { Box, ButtonCustom, InputForm } from "@/components/Form";
 import Modal from "@/components/Modals";
+import { useChat, type ListUserProps } from "./ChatContext";
 import { faFolder, faFolderPlus, faImages } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from 'next/image';
@@ -11,21 +12,14 @@ import { useState } from "react";
 
 interface RightBarProps {
     isShowRightBar: boolean;
-    chatSelectedBox: (user: ListUserProps) => void;
 }
+
+export type { ListUserProps };
 
 const tabs = [
     { id: "directory", label: "Directory" },
     { id: "information", label: "Information" },
 ];
-
-export interface ListUserProps {
-    name: string;
-    link: string;
-    avatar: string;
-    status: boolean;
-    isActive?: boolean;
-}
 
 const listUsers: ListUserProps[] = [
     { name: "Hoàng Minh Tuấn", avatar: "/assets/images/1.jpg", link: "./profile/user1", status: true },
@@ -55,7 +49,8 @@ interface User {
     avatar?: string;
 }
 
-export default function RightBar({ isShowRightBar, chatSelectedBox }: RightBarProps) {
+export default function RightBar({ isShowRightBar }: RightBarProps) {
+    const { selectChat } = useChat();
     const [activeTab, setActiveTab] = useState(tabs[0].id);
     const [userActive, setUserActive] = useState<User | null>();
     const [isShowModalAddFolder, setIsShowModalAddFolder] = useState(false);
@@ -93,7 +88,7 @@ export default function RightBar({ isShowRightBar, chatSelectedBox }: RightBarPr
                                 <li
                                     key={index}
                                     className="group flex items-center gap-3 pl-3 py-2 cursor-pointer hover:bg-black/80 rounded-lg transition-all"
-                                    onClick={() => chatSelectedBox({
+                                    onClick={() => selectChat({
                                         name: user.name,
                                         avatar: user.avatar,
                                         isActive: true,
