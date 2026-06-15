@@ -36,7 +36,7 @@ export async function POST(request: Request) {
         response.cookies.set("auth-token", "logged-in", {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            path: "/miu-cute",
+            path: "/",
             maxAge: 60 * 60,
         });
 
