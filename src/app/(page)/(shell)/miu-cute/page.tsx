@@ -4,7 +4,7 @@ import OverLoad from "@/components/OverLoad";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Modal from "@/components/Modals";
-import { RiZoomInLine } from "react-icons/ri";
+import { RiDeleteBin6Line, RiZoomInLine } from "react-icons/ri";
 import Link from "next/link";
 import { Box, ButtonCustom } from "@/app/components/Form";
 
@@ -191,6 +191,7 @@ export default function Child() {
                             <ButtonCustom
                                 size="small"
                                 text="Delete"
+                                icon={RiDeleteBin6Line}
                                 handleClick={() => handleOpenDeleteModal(photo)}
                             />
                         </div>

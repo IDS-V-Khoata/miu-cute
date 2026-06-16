@@ -17,14 +17,14 @@ interface ButtonCustomProps {
 }
 
 export const ButtonCustom = React.memo(({ text, primary, size, block, icon, handleClick }: ButtonCustomProps) => {
-    const bgColor = primary === "primary" ? 'bg-darkcharcoal hover:bg-[#2980b9] text-lightyellow' : primary === "secondary" ? 'bg-[#e0e5ec] hover:shadow-[inset_4px_4px_10px_#bec3cf,inset_-4px_-4px_10px_#ffffff] text-[#3d4468] shadow-[4px_4px_20px_#bec3cf,-8px_-8px_20px_#ffffff]' : primary === "darkyellow" ? "bg-darkcharcoal text-lightyellow shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] border-lightyellow hover:bg-darkcharcoal/80" : 'bg-gray-500 hover:bg-gray-600 text-white';
+    const bgColor = primary === "primary" ? 'bg-darkcharcoal hover:bg-black/70 text-lightyellow' : primary === "secondary" ? 'bg-[#e0e5ec] hover:shadow-[inset_4px_4px_10px_#bec3cf,inset_-4px_-4px_10px_#ffffff] text-[#3d4468] shadow-[4px_4px_20px_#bec3cf,-8px_-8px_20px_#ffffff]' : primary === "darkyellow" ? "bg-darkcharcoal text-lightyellow shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] border-lightyellow hover:bg-darkcharcoal/80" : 'bg-gray-500 hover:bg-gray-600 text-white';
     const hButton = size === 'small' ? 'h-8 text-sm' : size === 'large' ? 'h-10 text-xl' : 'h-9 text-xl';
     const wButton = block ? 'w-full' : 'w-auto';
 
     return (
         <button
             onClick={handleClick}
-            className={`${bgColor} ${hButton} ${wButton} rounded border border-solid transition-colors flex items-center justify-center gap-2 cursor-pointer px-4 sm:px-5 ${icon ? "font-light" : "font-bold"}`}
+            className={`${bgColor} ${hButton} ${wButton} rounded border border-solid transition-colors flex items-center justify-center gap-1 cursor-pointer px-3 ${icon ? "font-light" : "font-bold"}`}
         >
             {icon && (
                 typeof icon === "function"
@@ -229,7 +229,7 @@ interface BoxProps {
 
 export const Box = React.memo(({ children, className = "" }: BoxProps) => {
     return (
-        <div className={`${className} rounded bg-white border border-solid border-gray-200`} >
+        <div className={`${className} rounded border border-solid border-gray-200`} >
             {!!children && children}
         </div>
     )
