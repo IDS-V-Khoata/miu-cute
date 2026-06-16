@@ -119,7 +119,7 @@ export default function UploadImage() {
                 </p>
             )}
 
-            <div className="flex flex-col items-center justify-center space-y-4 p-4 border-2 border-dashed rounded-2xl bg-white mb-4">
+            <div className="flex flex-col items-center justify-center space-y-4 p-4 border-2 border-dashed rounded-2xl bg-white">
                 {!image ? (
                     <label className="flex flex-col items-center justify-center cursor-pointer h-64 w-64 p-6 rounded-xl bg-gray-100 hover:bg-gray-200 transition">
                         <FontAwesomeIcon className="text-3xl" icon={faImage} />
@@ -152,7 +152,7 @@ export default function UploadImage() {
             </div>
 
             {file && (
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 mt-3">
                     <InputForm
                         name="imageName"
                         autoComplete="off"
